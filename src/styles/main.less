@@ -1,0 +1,107 @@
+@import "maps.less";
+
+.centralizar(@justify: space-between, @align: center){
+    display: flex;
+    justify-content: @justify;
+    align-items: @align;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: @fonts[font-family];
+}
+
+body {
+    background-color: @cores[Fundo];
+}
+
+li {
+    list-style: none;
+}
+
+.container {
+    max-width: @breakpoint[desktop];
+    width: 100%;
+    margin: 0 auto;
+}
+
+header {
+    background-color: @cores[Cabecalho];
+    position: sticky;
+    top: 0;
+    left: 0;
+
+    .container{
+        .centralizar();
+        padding: 16px 0;
+    }
+}
+
+.menu {
+    display: flex;
+
+    li{
+        font-weight: bold;
+        margin-left: 24px;
+        
+        a{
+            color: @cores[Texto];
+            text-decoration: none;
+        }
+    }
+}
+
+section {
+    padding: 56px 0;
+}
+
+.products{
+    margin-top: 40px;
+    display: grid;
+    grid-template-columns: repeat(3, 32.66%);
+    column-gap: 1%;
+    row-gap: 4%;
+    width: 100%;
+    
+    img{
+        width: 100%;
+        border-radius: 16px;
+    }
+    .product-button{
+        display: block;
+        background-color: @cores[Btn];
+        color: @cores[Texto];
+        text-align: center;
+        padding: 8px 0;
+        border-radius: 8px;
+        margin-top: 8px;
+        text-decoration: none;
+
+        &:hover{
+            background-color: darken(@cores[Btn], 5%)
+        }
+    }
+}
+
+@media screen and @media-breakpoints[tablet] {
+    .container {
+        max-width: 80%;
+    }
+
+    .products {
+        grid-template-columns: repeat(2, 48.5%);
+        column-gap: 3%;
+    }
+}
+
+@media screen and @media-breakpoints[mobile] {
+    .products {
+        display: block;
+    }
+
+    .product-item {
+        margin-bottom: 32px;
+    }
+}
